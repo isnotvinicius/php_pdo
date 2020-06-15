@@ -25,10 +25,7 @@
 while ($váriavel = $statement->fetch(PDO::FETCH_ASSOC)){
     $objeto = new Class();
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2b58b50fc30a15d97e5aa6e12e83d50ad2416a5d
 ```
 
 - Para saber outros modos de formatação do fetch basta checar <a>https://www.php.net/manual/en/pdostatement.fetch#refsect1-pdostatement.fetch-parameters</a>
