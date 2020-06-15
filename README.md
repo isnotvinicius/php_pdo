@@ -9,7 +9,7 @@
 
 ## Executando comandos
 
-- Para executar comandos podemos chamar o método exec do PDO utilizando o objeto instânciado "$pdo->exec('statement');" onde statment é o comando ou a string com o comando.
+- Para executar comandos como create table ou insert de dados podemos chamar o método exec do PDO utilizando o objeto instânciado "$pdo->exec('statement');" onde statement é o comando ou a string com o comando.
 
 ## Busca de dados
 
@@ -25,7 +25,10 @@
 while ($váriavel = $statement->fetch(PDO::FETCH_ASSOC)){
     $objeto = new Class();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b58b50fc30a15d97e5aa6e12e83d50ad2416a5d
 ```
 
 - Para saber outros modos de formatação do fetch basta checar <a>https://www.php.net/manual/en/pdostatement.fetch#refsect1-pdostatement.fetch-parameters</a>
