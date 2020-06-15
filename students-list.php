@@ -1,11 +1,11 @@
 <?php
 
 use Alura\Pdo\Domain\Model\Student;
+use Alura\Pdo\Infrastructure\Persistence\ConnectionCreator;
 
 require 'vendor/autoload.php';
 
-$databsePath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO('sqlite:' . $databsePath);
+$pdo = ConnectionCreator::createConnection();
 
 $statement = $pdo->query('SELECT * FROM students');
 
@@ -20,5 +20,7 @@ foreach($studentDataList as $studentData){
         new DateTimeImmutable($studentData['birth_date'])
     );
 }
+
+var_dump($studentList);
 
 

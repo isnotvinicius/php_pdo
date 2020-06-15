@@ -1,15 +1,21 @@
 <?php
 
 use Alura\Pdo\Domain\Model\Student;
+use Alura\Pdo\Infrastructure\Persistence\ConnectionCreator;
 
 require 'vendor/autoload.php';
 
-$databsePath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO('sqlite:' . $databsePath);
+$pdo = ConnectionCreator::createConnection();
 
-$student = new Student(null, 'Vinicius Oliveira', new DateTimeImmutable('2000-10-08'));
+$student = new Student(null, 'Vinicius Silva', new DateTimeImmutable('2000-10-08'));
 
-$sqlInsert = "INSERT INTO students(name, birth_date) VALUES('{$student->name()}', '{$student->birthDate()->format('Y-m-d')}');";
+$sqlInsert = "INSERT INTO students(name, birth_date) VALUES(?, ?);";
 
-$pdo->exec($sqlInsert);
+$statement = $pdo->prepare($sqlInsert);
+$statement->bindValue(1, $student->name());
+$statement->bindValue(2, $student->birthDate()->format('Y-m-d'));
+
+if($statement->execute()){
+    echo "Aluno incluído";
+}
 
