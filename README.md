@@ -52,3 +52,21 @@ $statement->bindValue(2, $student->birthDate()->format('Y-m-d'));
 - Podemos utilizar o bindParam para utilizar a passagem por referência.
 
 - Por padrão os valores passados são sempre string, caso precisemos passar outro tipo basta adicionar como terceiro parâmetro no bindValue PDO::PARAM_TIPO-DADO.
+
+
+## Transação
+
+- É uma sequência de operações onde se uma das operações falhar nenhuma outra é executada.
+
+- no PDO utilizamos o beginTransaction(); para iniciar uma transação. 
+
+- Utilizamos o commit(); para finalizá-la.
+
+- Para cancelar uma transação utilizamos o rollBack(); que irá ignorar tudo que foi feito entre o rollBack e o beginTransaction.
+
+
+
+
+
+
+
